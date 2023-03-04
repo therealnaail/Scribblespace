@@ -11,9 +11,10 @@ notes_text.pack()
 
 # Create a Save button
 def save_notes():
-    with open("scribbles.txt", "w") as file:
-        file.write(notes_text.get("1.0", "end"))
-    tkmb.showinfo("Scribblespace", "Notes saved successfully!")
+    if tkmb.askyesno("Scribblespace", "Are you sure you want to save? This will overwrite existing notes."):
+        with open("scribbles.txt", "w") as file:
+            file.write(notes_text.get("1.0", "end"))
+        tkmb.showinfo("Scribblespace", "Notes saved successfully!")
 
 save_button = tk.Button(root, text="Save", command=save_notes, bg='light yellow')
 save_button.pack()
