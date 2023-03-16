@@ -21,6 +21,9 @@ save_button.pack()
 
 # Create a Load button
 def load_notes():
+     if notes_text.get("1.0", "end-1c") != "":
+        if not tkmb.askyesno("Scribblespace", "Are you sure you want to load? This will overwrite your current notes."):
+            return
     with open("scribbles.txt", "r") as file:
         notes_text.delete("1.0", tk.END)
         notes_text.insert("1.0", file.read())
