@@ -32,4 +32,12 @@ def load_notes():
 load_button = tk.Button(root, text="Load", command=load_notes, bg='light yellow')
 load_button.pack()
 
+# Confirmation message before clearing the notes
+def clear_notes():
+    if tkmb.askyesno("Scribblespace", "Are you sure you want to clear all notes?"):
+        notes_text.delete("1.0", tk.END)
+
+clear_button = tk.Button(root, text="Clear", command=clear_notes, bg='light yellow')
+clear_button.pack()
+
 root.mainloop()
